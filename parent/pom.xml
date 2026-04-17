@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    SPDX-License-Identifier: EPL-1.0
+    See LICENSE file for details.
+
+    Copyright 2010-2026 tomcat-slf4j-logback
+
+-->
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.tomcat-slf4j-logback</groupId>
+    <artifactId>tomcat-slf4j-logback-parent</artifactId>
+    <version>1.8.2-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>tomcat-slf4j-logback-parent</name>
+    <description>Tomcat Slf4j Logback Integration Parent Pom</description>
+
+    <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
+    <inceptionYear>2010</inceptionYear>
+
+    <organization>
+        <name>tomcat-slf4j-logback</name>
+        <url>https://github.com/tomcat-slf4j-logback/</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>Eclipse Public License, 1.0</name>
+            <url>https://www.eclipse.org/legal/epl-v10.html</url>
+            <distribution>repo</distribution>
+        </license>
+        <license>
+            <name>Tomcat, Jackson, and Logstash License</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+        <license>
+            <name>Logback License</name>
+            <url>https://logback.qos.ch/license.html</url>
+            <distribution>manual</distribution>
+            <comments>Dual-licensed under the EPL v1.0 and the LGPL 2.1</comments>
+        </license>
+        <license>
+            <name>Slf4j License</name>
+            <url>http://slf4j.org/license.html</url>
+            <distribution>manual</distribution>
+            <comments>MIT license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>grgrzybek</id>
+            <name>Grzegorz Grzybek</name>
+            <email>grgrzybek@hotmail.com</email>
+            <url>https://www.linkedin.com/in/grgrzybek</url>
+            <organization>grgrzybek</organization>
+            <organizationUrl>https://github.com/grgrzybek/</organizationUrl>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>+1</timezone>
+            <properties>
+                <picUrl>https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/005/043/3fe/29c33c6.jpg</picUrl>
+            </properties>
+        </developer>
+        <developer>
+            <name>Jeremy Landis</name>
+            <email>jeremylandis@hotmail.com</email>
+            <url>https://www.linkedin.com/pub/jeremy-landis/19/b27/548/</url>
+            <organization>hazendaz</organization>
+            <organizationUrl>https://github.com/hazendaz</organizationUrl>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>-5</timezone>
+            <properties>
+                <picUrl>https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/1/000/128/174/30cff69.jpg</picUrl>
+            </properties>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>GitHub</system>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent/actions</url>
+    </ciManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>central</id>
+            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <site>
+            <id>gh-pages-scm</id>
+            <name>Tomcat Slf4j Logback Parent GitHub Pages</name>
+            <url>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback-parent.git</url>
+        </site>
+    </distributionManagement>
+
+    <properties>
+        <!-- Copyright -->
+        <copyright>2026</copyright>
+
+        <!-- Github Token -->
+        <github.global.server>github</github.global.server>
+
+        <!-- Automatic Module Name -->
+        <module.name>com.github.tomcat.slf4j.logback.parent</module.name>
+
+        <!-- Maven compiler options -->
+        <java.version>8</java.version>
+        <java.release.version>8</java.release.version>
+        <java.test.version>${java.version}</java.test.version>
+        <java.test.release.version>${java.release.version}</java.test.release.version>
+
+        <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples -->
+        <javadoc.java.release.version>8</javadoc.java.release.version>
+
+        <!-- Legacy compiler options source/target not really needed now (but still used by things like sonar, m2e) -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
+        <maven.compiler.testTarget>${java.test.version}</maven.compiler.testTarget>
+
+        <maven.compiler.release>${java.release.version}</maven.compiler.release>
+        <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
+
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+        <maven.min-version>3.9.12</maven.min-version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Reproducible Builds -->
+        <project.build.outputTimestamp>1770173266</project.build.outputTimestamp>
+
+        <!-- Due to maven bug, fix timestamp -->
+        <timestamp>${maven.build.timestamp}</timestamp>
+
+        <!-- Enforcer Jdks Allowed -->
+        <allowed.build.jdks>[1.8,1.9)</allowed.build.jdks>
+
+        <!-- Plugin Artifacts -->
+        <extra-enforcer-rules.version>1.12.0</extra-enforcer-rules.version>
+    </properties>
+
+    <build>
+        <finalName>tomcat-juli</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>3.6.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.5.0</version>
+                    <configuration>
+                        <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                        <filesets>
+                            <fileset>
+                                <directory>${project.build.directory}</directory>
+                                <includes>
+                                    <include>**/*</include>
+                                </includes>
+                            </fileset>
+                        </filesets>
+                        <force>true</force>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.15.0</version>
+                    <configuration>
+                        <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
+                        <useIncrementalCompilation>false</useIncrementalCompilation>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.10.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.1.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>3.6.2</version>
+                    <configuration>
+                        <rules>
+                            <enforceBytecodeVersion>
+                                <maxJdkVersion>${java.version}</maxJdkVersion>
+                            </enforceBytecodeVersion>
+                            <requireJavaVersion>
+                                <message>Allowed jdks ${allowed.build.jdks}. Please upgrade java and configure 'JAVA_HOME'.</message>
+                                <version>${allowed.build.jdks}</version>
+                            </requireJavaVersion>
+                            <requireMavenVersion>
+                                <message>Minimum maven ${maven.min-version}. Please upgrade maven and configure 'M2_HOME'.</message>
+                                <version>[${maven.min-version},)</version>
+                            </requireMavenVersion>
+                        </rules>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>extra-enforcer-rules</artifactId>
+                            <version>${extra-enforcer-rules.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>3.2.8</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.4</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.5.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                                <copyright>${copyright}</copyright>
+                                <!-- Git Commit Id property is auto generated -->
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
+                                <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                                <Slf4j-Version>${slf4j.version}</Slf4j-Version>
+                                <Logback-Version>${logback.version}</Logback-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>3.6.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.9.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>3.3.1</version>
+                    <configuration>
+                        <addSchema>false</addSchema>
+                        <arguments>-Daether.checksums.algorithms=SHA-512,SHA-256,SHA-1,MD5</arguments>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <releaseProfiles>release</releaseProfiles>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.5.0</version>
+                    <configuration>
+                        <!-- Defaults to source, use resources as this is a resource -->
+                        <propertiesEncoding>${project.build.resourceEncoding}</propertiesEncoding>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>3.3.0</version>
+                    <configuration>
+                        <checkoutDirectory>${user.home}/maven-sites/${project.name}</checkoutDirectory>
+                        <!-- no need for site:stage, use target/site or target/checkout/target/site on release -->
+                        <content>${project.reporting.outputDirectory}</content>
+                        <scmBranch>gh-pages</scmBranch>
+                        <tryUpdate>true</tryUpdate>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.6.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.21.0</version>
+                    <configuration>
+                        <!-- don't deploy site with maven-site-plugin (instead use scm publish during release) -->
+                        <skipDeploy>true</skipDeploy>
+                    </configuration>
+                    <dependencies>
+                        <!-- For reporting only of versions (make sure to update in site.xml) -->
+                        <dependency>
+                            <groupId>org.apache.maven.skins</groupId>
+                            <artifactId>maven-fluido-skin</artifactId>
+                            <version>2.1.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.4.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+                                <Copyright>${copyright}</Copyright>
+                                <!-- Git Commit Id property is auto generated -->
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Jackson-version>${jackson.version}</Jackson-version>
+                                <Logstash-Version>${logstash.version}</Logstash-Version>
+                                <Tomcat-Classloader-Version>${tomcat.version}</Tomcat-Classloader-Version>
+                                <Slf4j-Version>${slf4j.version}</Slf4j-Version>
+                                <Logback-Version>${logback.version}</Logback-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                                <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.5.5</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.21.0</version>
+                </plugin>
+
+                <!--
+                <plugin>
+                    <groupId>io.github.git-commit-id</groupId>
+                    <artifactId>git-commit-id-maven-plugin</artifactId>
+                    <version>10.0.0</version>
+                    <configuration>
+                        <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                        <gitDescribe>
+                            <always>true</always>
+                        </gitDescribe>
+                        <runOnlyOnce>true</runOnlyOnce>
+                    </configuration>
+                </plugin>
+                -->
+
+                <!--
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>5.0.0</version>
+                    <configuration>
+                        <licenseSets>
+                            <licenseSet>
+                                <header>LICENSE_HEADER</header>
+                                <excludes>
+                                    <exclude>**/LICENSE-jackson.txt</exclude>
+                                    <exclude>**/LICENSE-logback.txt</exclude>
+                                    <exclude>**/LICENSE-slf4j.txt</exclude>
+                                    <exclude>**/LICENSE-tomcat.txt</exclude>
+                                    <exclude>**/NOTICE-jackson.txt</exclude>
+                                    <exclude>**/NOTICE-tomcat.txt</exclude>
+                                    <exclude>**/server.xml</exclude>
+                                </excludes>
+                            </licenseSet>
+                        </licenseSets>
+                        <mapping>
+                            <conf>DOUBLESLASH_STYLE</conf>
+                            <policy>DOUBLESLASH_STYLE</policy>
+                        </mapping>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.mycila</groupId>
+                            <artifactId>license-maven-plugin-git</artifactId>
+                            <version>5.0.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                -->
+
+                <plugin>
+                    <groupId>com.github.ekryd.sortpom</groupId>
+                    <artifactId>sortpom-maven-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <configuration>
+                        <createBackupFile>false</createBackupFile>
+                        <expandEmptyElements>false</expandEmptyElements>
+                        <keepBlankLines>true</keepBlankLines>
+                        <nrOfIndentSpace>4</nrOfIndentSpace>
+                        <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
+                        <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+                    </configuration>
+                </plugin>
+
+                <!-- Sonatype Provided Plugins -->
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.10.0</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <publishingServerId>central</publishingServerId>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+            <plugin>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>git-commit-id</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>enforce-clean</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <phase>pre-clean</phase>
+                    </execution>
+                    <execution>
+                        <id>enforce-site</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <phase>pre-site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.ekryd.sortpom</groupId>
+                <artifactId>sortpom-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>sort</goal>
+                        </goals>
+                        <phase>verify</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Sonatype Provided Plugins -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <phase>verify</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Skip license plugin during release as maven release is now shallow cloned -->
+                    <plugin>
+                        <groupId>com.mycila</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                    <!-- deploy site with maven-scm-publish-plugin -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-publish-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>scm-publish</id>
+                                <goals>
+                                    <goal>publish-scm</goal>
+                                </goals>
+                                <phase>site-deploy</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
